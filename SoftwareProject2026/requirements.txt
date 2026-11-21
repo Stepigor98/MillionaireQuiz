@@ -1,0 +1,2 @@
+# Optional dependency for ui/lifeline_demo.py (Tkinter app uses the Python standard library)
+streamlit

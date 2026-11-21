@@ -1,0 +1,5 @@
+# Project Management Approach
+
+This project will use a **hybrid project management approach**. The work will be divided into small development stages like in Scrum, but the task flow will also stay flexible like in Kanban. This is suitable for the Millionaire Quiz project because the application already has a basic version, and the main goal is to improve it step by step: game settings, lifelines, SQLite game history, leaderboard, better interface design, and CSV import/export.
+
+The human developer is responsible for the main project idea, architecture decisions, final code review, manual testing, and checking that the project meets the Software Engineering course requirements. AI assistants can help with boilerplate code, documentation drafts, unit tests, small refactoring, bug fixing ideas, and explaining possible solutions. However, AI must work inside the Engineering Harness: it should follow `AGENTS.md`, read the `/docs` folder before making changes, and avoid large uncontrolled rewrites.
