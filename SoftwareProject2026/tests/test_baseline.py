@@ -5,6 +5,7 @@ import sqlite3
 import sys
 import tempfile
 import unittest
+from contextlib import closing
 from pathlib import Path
 from unittest.mock import patch
 
@@ -36,7 +37,7 @@ class DatabaseBaselineTests(unittest.TestCase):
     def test_first_launch_copies_valid_baseline_database(self):
         self.assertTrue(self.db_path.is_file())
         self.assertNotEqual(self.db_path.resolve(), db.SAMPLE_DB_PATH.resolve())
-        with sqlite3.connect(self.db_path) as conn:
+        with closing(sqlite3.connect(self.db_path)) as conn:
             self.assertEqual(conn.execute("PRAGMA integrity_check").fetchone()[0], "ok")
         self.assertEqual(db.total_questions(), 47)
         self.assertEqual(sum(count for _, count in db.stats_questions_by_level()), 47)

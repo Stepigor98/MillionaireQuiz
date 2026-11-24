@@ -4,6 +4,7 @@
 import os                   # path to DB - quiz.db
 import sqlite3          # SQLite database operations
 import shutil
+from contextlib import closing
 from pathlib import Path
 
 from typing import Dict, List, Optional, Tuple          # Type hints - for better code clearity 
@@ -31,7 +32,7 @@ def _conn() -> sqlite3.Connection:          # Opens the database file (quiz.db),
 
 
 def _rows(sql: str, params: tuple = ()) -> List[sqlite3.Row]:           # Runs a SELECT query and returns ALL matching rows as a list
-    with _conn() as c:
+    with closing(_conn()) as c:
         return c.execute(sql, params).fetchall()
 
 
@@ -39,7 +40,7 @@ def _rows(sql: str, params: tuple = ()) -> List[sqlite3.Row]:           # Runs a
 
 
 def _one(sql: str, params: tuple = ()) -> Optional[sqlite3.Row]:            # Gives many results, example: “give me all questions” or “give me all categories”, return list of rows from the database
-    with _conn() as c:
+    with closing(_conn()) as c:
         return c.execute(sql, params).fetchone()
 
 
@@ -47,7 +48,7 @@ def _one(sql: str, params: tuple = ()) -> Optional[sqlite3.Row]:            # Gi
 
 
 def _exec(sql: str, params: tuple = ()) -> None:          # Gives only one result, example: “give me question with id=5”, return single row from the database
-    with _conn() as c:
+    with closing(_conn()) as c:
         c.execute(sql, params)
         c.commit()
 
@@ -56,7 +57,7 @@ def _exec(sql: str, params: tuple = ()) -> None:          # Gives only one resul
 
 
 def _many(sql: str, params_list: List[tuple]) -> None:          # Does an action that CHANGES the database, such an add / update / delete / create table, then save changes
-    with _conn() as c:
+    with closing(_conn()) as c:
         c.executemany(sql, params_list)
         c.commit()
 
