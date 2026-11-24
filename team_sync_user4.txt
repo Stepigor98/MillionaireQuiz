@@ -1,0 +1,4 @@
+Проверка GitHub-синхронизации.
+Участник: №4.
+GitHub username: C0mply.
+Этот файл создан в VS Code для теста Commit / Push / Pull Request.
