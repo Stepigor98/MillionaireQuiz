@@ -1,4 +1,4 @@
 Проверка GitHub-синхронизации.
 Участник: №3.
 GitHub username: FrostyPaw.
-Этот файл создан в VS Code для теста Commit / Push / Pull Request.
+Этот файл создан в VS Code для теста Commit / Push / Pull Request..
