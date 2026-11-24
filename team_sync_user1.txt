@@ -1,0 +1,3 @@
+Участник: №1.(Igor)
+GitHub username: ВАШ_USERNAME.
+Этот файл создан в VS Code для теста Commit / Push / Pull Request.
